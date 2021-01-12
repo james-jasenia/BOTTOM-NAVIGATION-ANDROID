@@ -30,25 +30,25 @@ public class MainActivity extends AppCompatActivity {
         homeFragment = new HomeFragment();
         settingsFragment = new SettingsFragment();
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        fragmentTransaction.replace(R.id.flFragment, homeFragment);
-                        fragmentTransaction.commit();
-                        break;
-                    case R.id.settings:
-                        fragmentTransaction.replace(R.id.flFragment, settingsFragment);
-                        fragmentTransaction.commit();
-                        break;
-                }
-                return false;
-            }
-        });
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//
+//                switch (item.getItemId()) {
+//                    case R.id.home:
+//                        fragmentTransaction.replace(R.id.flFragment, homeFragment);
+//                        fragmentTransaction.commit();
+//                        break;
+//                    case R.id.settings:
+//                        fragmentTransaction.replace(R.id.flFragment, settingsFragment);
+//                        fragmentTransaction.commit();
+//                        break;
+//                }
+//                return false;
+//            }
+//        });
     }
 }
