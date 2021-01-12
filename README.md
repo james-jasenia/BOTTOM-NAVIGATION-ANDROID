@@ -10,3 +10,28 @@ At the moment, I understand their are two primary ways to implement a TabBarCont
 
 ### OnNavigationItemSelectedListener
 When implemen
+
+
+# Move Later:
+### Navigation Graph
+
+#### Preview not appearing:
+
+```
+  <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.bottomnavigationjetpack.HomeFragment"
+        android:label="HomeFragment"
+        />
+```
+
+Should be:
+
+```
+  <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.bottomnavigationjetpack.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"
+        />
+```
