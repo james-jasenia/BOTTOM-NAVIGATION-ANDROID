@@ -19,36 +19,18 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    HomeFragment homeFragment;
-    SettingsFragment settingsFragment;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setUpNavigation();
+    }
 
-        homeFragment = new HomeFragment();
-        settingsFragment = new SettingsFragment();
-
-//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                FragmentManager fragmentManager = getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//                switch (item.getItemId()) {
-//                    case R.id.home:
-//                        fragmentTransaction.replace(R.id.flFragment, homeFragment);
-//                        fragmentTransaction.commit();
-//                        break;
-//                    case R.id.settings:
-//                        fragmentTransaction.replace(R.id.flFragment, settingsFragment);
-//                        fragmentTransaction.commit();
-//                        break;
-//                }
-//                return false;
-//            }
-//        });
+    public void setUpNavigation() {
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        NavHostFragment navHostFragment = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_container);
+        NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.getNavController());
     }
 }
