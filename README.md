@@ -1,10 +1,7 @@
 # Bottom Navigation - Android
 
 ## Purpose:
-The purpose of this code base is to explore the different ways that you can add a Bottom Navigation Bar to an app.
-
-## Implentations:
-At the moment, I understand their are two primary ways to implement a TabBarController. One is using the Jetpack Navigation Componenets which will handle the destinations of the user interactions. The other is the more 'traditional' approach using a OnNavigationItemSelectedListener.
+The purpose of this code base is to explore the different ways that you can add a Bottom Navigation Bar to an app. The two different implementations that are used in this codebase is Jetpack's Navigation Componenets add the OnNavigationItemSelectedListener method.
 
 ## BottomNavigationView:
 The naming of the this UI componenet is inconsistent across the documentaion and APIs (unless I am missing something). It is referred to as BottomNavigationView, but as it is also a menu, it can be referred to as BottomNavigatioMenu. This is noticeable in the XML files you work with to build out this functionality (app:menu, header type).  
