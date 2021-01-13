@@ -58,7 +58,7 @@ Once you have created your bottom navigation view xml file, you can implement it
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-### Jetpack
+## Jetpack
 You are able to use the Jetpack Navigation Components to manage your BottomNavigationView functionality. Jetpack Navigation Graphs is destination and fragment focused. In your MainActivity, you will need a FragmentContainerView that will hold the fragments the user will navigation through. There are three properties that the Navigation Graph depends on in order to function correctly. 
 
 android:name="androidx.navigation.fragment.NavHostFragment"
@@ -118,8 +118,19 @@ NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.getNav
 You setup your Navigation Graph as you would without a BottomNavigationView. Ensure that your IDs are consistent across the fragmentId (in the navgraph), and bottom_nav_menu items id.
 
 
-### OnNavigationItemSelectedListener
-When implemen
+## OnNavigationItemSelectedListener
+The more traditional way (I think) is to implement a BottomNavigationView using the OnNavigationItemSelectedListener. You create and implement your bottom_nav_menu.xml as you usually would.
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Move Later:
