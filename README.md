@@ -119,45 +119,61 @@ You setup your Navigation Graph as you would without a BottomNavigationView. Ens
 
 
 ## OnNavigationItemSelectedListener
-The more traditional way (I think) is to implement a BottomNavigationView using the OnNavigationItemSelectedListener. You create and implement your bottom_nav_menu.xml as you usually would.
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Move Later:
-### Navigation Graph
-
-
-#### Preview not appearing:
+The more traditional way (I think) is to implement a BottomNavigationView using the OnNavigationItemSelectedListener. You create and implement your bottom_nav_menu.xml and your FragmentContainer/FrameLayout as you usually would. This approach uses the FragmentManager and FragmentTransaction objects to manage adding and replacing fragments based on user interaction.
 
 ```
-  <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.bottomnavigationjetpack.HomeFragment"
-        android:label="HomeFragment"
-        />
-```
+package com.example.bottomnavigationjetpack;
 
-Should be:
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
-```
-  <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.bottomnavigationjetpack.HomeFragment"
-        android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"
-        />
-```
+import android.app.Fragment;
+import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
-```
+public class MainActivity extends AppCompatActivity {
+
+    HomeFragment homeFragment;
+    SettingsFragment settingsFragment;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        homeFragment = new HomeFragment();
+        settingsFragment = new SettingsFragment();
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        fragmentTransaction.replace(R.id.flFragment, homeFragment);
+                        fragmentTransaction.commit();
+                        break;
+                    case R.id.settings:
+                        fragmentTransaction.replace(R.id.flFragment, settingsFragment);
+                        fragmentTransaction.commit();
+                        break;
+                }
+                return false;
+            }
+        });
+    }
+}
 ```
